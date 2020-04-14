@@ -1,3 +1,5 @@
 <resources>
     <string name="app_name">HealBits</string>
+
+    <string name="message_error_internet_connection">Интернет не доступен!</string>
 </resources>

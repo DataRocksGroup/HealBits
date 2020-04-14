@@ -1,0 +1,57 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines. -->
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+
+    <!--Added By Kanat-->
+    <dimen name="padding_action_bar">@dimen/_17sdp</dimen>
+    <dimen name="padding_simple">@dimen/_14sdp</dimen>
+    <dimen name="padding_simple_2">@dimen/_11sdp</dimen>
+    <dimen name="padding_simple_3">@dimen/_16sdp</dimen>
+    <dimen name="padding_horizontal">@dimen/_22sdp</dimen>
+    <dimen name="padding_vertical">@dimen/margin_simple</dimen>
+    <dimen name="padding_between_views">@dimen/_10sdp</dimen>
+    <dimen name="padding_edit_text_vertical">@dimen/_8sdp</dimen>
+    <dimen name="padding_edit_text_vertical_2">@dimen/_10sdp</dimen>
+    <dimen name="padding_edit_text_vertical_3">@dimen/_6sdp</dimen>
+    <dimen name="padding_edit_text_vertical_4">@dimen/_3sdp</dimen>
+    <dimen name="padding_edit_text_horizontal">@dimen/_10sdp</dimen>
+
+    <dimen name="margin_action_bar">@dimen/_17sdp</dimen>
+    <dimen name="margin_simple">@dimen/_14sdp</dimen>
+    <dimen name="margin_horizontal">@dimen/_22sdp</dimen>
+    <dimen name="margin_vertical">@dimen/margin_simple</dimen>
+    <dimen name="margin_between_views">@dimen/_10sdp</dimen>
+    <dimen name="margin_between_views_2">@dimen/_15sdp</dimen>
+    <dimen name="margin_between_views_3">@dimen/_20sdp</dimen>
+    <dimen name="margin_between_views_4">@dimen/_25sdp</dimen>
+    <dimen name="margin_between_views_5">@dimen/_30sdp</dimen>
+    <dimen name="margin_between_views_6">@dimen/_35sdp</dimen>
+    <dimen name="margin_between_views_7">@dimen/_40sdp</dimen>
+    <dimen name="margin_between_views_8">@dimen/_45sdp</dimen>
+    <dimen name="margin_of_present_text">@dimen/_5sdp</dimen>
+    <dimen name="margin_between_items">@dimen/_5sdp</dimen>
+    <dimen name="margin_toolbar_title">@dimen/_30sdp</dimen>
+    <dimen name="margin_toolbar_title_2">@dimen/_50sdp</dimen>
+
+    <dimen name="size_back_btn">@dimen/_20sdp</dimen>
+    <dimen name="size_stroke_1">@dimen/_1sdp</dimen>
+
+    <dimen name="corner_size_too_small">@dimen/_3sdp</dimen>
+    <dimen name="corner_size_small">@dimen/_6sdp</dimen>
+    <dimen name="corner_size_normal">@dimen/_9sdp</dimen>
+    <dimen name="corner_size_medium">@dimen/_12sdp</dimen>
+    <dimen name="corner_size_big">@dimen/_15sdp</dimen>
+    <dimen name="corner_size_bigger">@dimen/_18sdp</dimen>
+    <dimen name="corner_size_very_big">@dimen/_21sdp</dimen>
+
+    <dimen name="text_too_small">@dimen/_8ssp</dimen>
+    <dimen name="text_small">@dimen/_10ssp</dimen>
+    <dimen name="text_normal">@dimen/_12ssp</dimen>
+    <dimen name="text_normal_2">@dimen/_11ssp</dimen>
+    <dimen name="text_medium">@dimen/_14ssp</dimen>
+    <dimen name="text_big">@dimen/_16ssp</dimen>
+    <dimen name="text_bigger">@dimen/_18ssp</dimen>
+    <dimen name="text_very_big">@dimen/_20ssp</dimen>
+    <dimen name="text_gigant">@dimen/_24ssp</dimen>
+</resources>
