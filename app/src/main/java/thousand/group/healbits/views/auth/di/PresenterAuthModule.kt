@@ -6,6 +6,7 @@ import org.koin.core.qualifier.named
 import org.koin.dsl.module
 import thousand.group.healbits.global.constants.scopes.AuthScope
 import thousand.group.healbits.views.auth.presenters.activity.AuthPresenter
+import thousand.group.healbits.views.auth.presenters.login.LoginPresenter
 
 val presenterAuthModule = module {
     scope(named(AuthScope.AUTH_ACTIVITY_SCOPE)) {
@@ -13,5 +14,9 @@ val presenterAuthModule = module {
             AuthPresenter(context, get { parametersOf(context) }, get())
         }
     }
-
+    scope(named(AuthScope.LOGIN_SCOPE)) {
+        scoped { (context: Context) ->
+            LoginPresenter(context, get { parametersOf(context) }, get())
+        }
+    }
 }

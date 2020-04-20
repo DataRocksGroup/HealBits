@@ -20,8 +20,17 @@ class AuthPresenter(
     }
 
     override fun onStart() {
+        checkAccess()
     }
 
     override fun onFinish() {
+    }
+
+    fun checkAccess() {
+        if (interactor.isUserSaved()) {
+            viewState.openMainActivity()
+        } else {
+            viewState.openLoginFragment()
+        }
     }
 }

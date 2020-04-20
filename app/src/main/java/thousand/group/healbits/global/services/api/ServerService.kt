@@ -1,6 +1,23 @@
 package thousand.group.healbits.global.services.api
 
+import io.reactivex.Single
+import retrofit2.Response
+import retrofit2.http.GET
+import retrofit2.http.Path
+import thousand.group.healbits.global.constants.requests.UserRequest
+import thousand.group.healbits.global.constants.simple.Endpoints
+import thousand.group.healbits.model.rest.RestUser
+
 interface ServerService {
+
+    @GET(Endpoints.SIGN_IN)
+    fun signIn(
+        @Path(UserRequest.phone) phone: String,
+        @Path(UserRequest.password) password: String
+    ): Single<Response<RestUser>>
+
+//    @GET(Endpoints.GET_GOOD_DETAIL)
+//    fun getGoodDetail(@Path(GoodRequest.id) id: String): Single<Response<GoodDetail>>
 
 //    @Multipart
 //    @POST(Endpoints.SIGN_IN)

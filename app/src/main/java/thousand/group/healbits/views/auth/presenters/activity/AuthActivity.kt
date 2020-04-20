@@ -13,7 +13,10 @@ import org.koin.core.qualifier.named
 import thousand.group.healbits.R
 import thousand.group.healbits.global.base.BaseActivity
 import thousand.group.healbits.global.constants.scopes.AuthScope
+import thousand.group.healbits.global.extentions.clearAndReplaceFragment
 import thousand.group.healbits.global.helpers.MainFragmentHelper
+import thousand.group.healbits.views.auth.presenters.login.LoginFragment
+import thousand.group.healbits.views.main.presenters.activity.MainActivity
 
 class AuthActivity : BaseActivity(), AuthView {
     override val layoutRes = R.layout.activity_auth
@@ -77,6 +80,20 @@ class AuthActivity : BaseActivity(), AuthView {
     override fun onDestroy() {
         getKoin().getScopeOrNull(AuthScope.AUTH_ACTIVITY_SCOPE)?.close()
         super.onDestroy()
+    }
+
+    override fun openLoginFragment() {
+        supportFragmentManager.clearAndReplaceFragment(
+            R.id.fragment_container,
+            LoginFragment.newInstance(),
+            LoginFragment.NAV_TAG
+        )
+    }
+
+    override fun openMainActivity() {
+        val intent = Intent(this, MainActivity::class.java)
+        startActivity(intent)
+        finish()
     }
 
     private fun fragmentLifeCycleController(tag: String) {

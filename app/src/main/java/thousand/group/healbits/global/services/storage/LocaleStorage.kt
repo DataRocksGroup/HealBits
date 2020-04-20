@@ -1,6 +1,8 @@
 package thousand.group.healbits.global.services.storage
 
 import com.pixplicity.easyprefs.library.Prefs
+import thousand.group.healbits.global.helpers.GsonHelper
+import thousand.group.healbits.model.simple.User
 
 object LocaleStorage {
 
@@ -36,20 +38,20 @@ object LocaleStorage {
 
     fun getPush(): Int = Prefs.getInt(PREF_PERM_PUSH, 1)
 
-//    fun saveUserModel(user: User) =
-//        Prefs.putString(PREF_SAVED_USER_MODEL, GsonHelper.getJsonFromObject(user))
-//
-//    fun deleteUserModel() = Prefs.remove(PREF_SAVED_USER_MODEL)
-//
-//    fun getUserModel(): User? {
-//        val modelJson = Prefs.getString(PREF_SAVED_USER_MODEL, null)
-//
-//        modelJson?.apply {
-//            return GsonHelper.getObjectFromString(this, User::class.java)
-//        }
-//
-//        return null
-//    }
+    fun saveUserModel(user: User) =
+        Prefs.putString(PREF_SAVED_USER_MODEL, GsonHelper.getJsonFromObject(user))
+
+    fun deleteUserModel() = Prefs.remove(PREF_SAVED_USER_MODEL)
+
+    fun getUserModel(): User? {
+        val modelJson = Prefs.getString(PREF_SAVED_USER_MODEL, null)
+
+        modelJson?.apply {
+            return GsonHelper.getObjectFromString(this, User::class.java)
+        }
+
+        return null
+    }
 
     fun setFirstTimeLaunched(firstTimeLaunched: Boolean) =
         Prefs.putBoolean(PREF_FIRST_LAUNCHED, firstTimeLaunched)

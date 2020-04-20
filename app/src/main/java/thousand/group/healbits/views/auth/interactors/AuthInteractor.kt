@@ -8,4 +8,6 @@ class AuthInteractor(
     private val repository: AuthRepository,
     private val schedulersProvider: SchedulersProvider,
     private val storage: LocaleStorage
-)
+) {
+    fun isUserSaved(): Boolean = storage.isUserSaved()
+}
