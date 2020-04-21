@@ -2,11 +2,11 @@ package thousand.group.healbits.global.services.api
 
 import io.reactivex.Single
 import retrofit2.Response
-import retrofit2.http.GET
-import retrofit2.http.Path
+import retrofit2.http.*
 import thousand.group.healbits.global.constants.requests.UserRequest
 import thousand.group.healbits.global.constants.simple.Endpoints
 import thousand.group.healbits.model.rest.RestUser
+import thousand.group.healbits.model.simple.User
 
 interface ServerService {
 
@@ -16,6 +16,16 @@ interface ServerService {
         @Path(UserRequest.password) password: String
     ): Single<Response<RestUser>>
 
+    @FormUrlEncoded
+    @POST(Endpoints.SIGN_UP)
+    fun signUp(@FieldMap params: MutableMap<String, String>): Single<Response<User>>
+
+//    @FormUrlEncoded
+//    @POST(Endpoints.UPDATE_BASKET_ITEM_COUNT)
+//    fun updateBasketItemCount(
+//        @Field(GoodRequest.product_id) product_id: String,
+//        @Field(GoodRequest.count) count: String
+//    ): Single<Response<BasketGood>>
 //    @GET(Endpoints.GET_GOOD_DETAIL)
 //    fun getGoodDetail(@Path(GoodRequest.id) id: String): Single<Response<GoodDetail>>
 

@@ -12,5 +12,5 @@ data class User(
     var height: Int,
     var weight: Int,
     var id: Int,
-    var phone: Int
+    var phone: Number
 ) : Parcelable

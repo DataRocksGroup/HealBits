@@ -6,16 +6,26 @@
     <string name="label_come_in">Войти</string>
     <string name="label_welcome">Добро пожаловать</string>
     <string name="label_sign_up">Регистрация</string>
+    <string name="label_sign_up_do">Зарегестрироваться</string>
 
     <string name="format_phone_number" translatable="false">+7 ([000]) [000]-[00]-[00]</string>
     <string name="format_phone_number_clear">8%s</string>
-
-    <string name="hint_phone">Номер телефона</string>
-    <string name="hint_password">Пароль</string>
 
     <string name="message_error_password_is_not_correct">Пароли либо не совпадают либо пустые!</string>
     <string name="message_error_password_is_empty">Пароль не должен быть пустым!</string>
     <string name="message_error_password_is_less_than_3">Пароль не должен содержать меньше 3 символов!</string>
     <string name="message_error_phone_is_not_correct">Номер не заполнен правильно!</string>
     <string name="message_error_user_not_found">Пользователь либо не найден, либо пароль не правильный!</string>
+    <string name="message_error_data_filled_incorrect">Данные не должны быть пустыми!</string>
+    <string name="message_error_user_is_previously_signed_up">Пользователь с таким номером уже существует!</string>
+
+    <string name="hint_phone">Номер телефона</string>
+    <string name="hint_first_name">Имя</string>
+    <string name="hint_last_name">Фамилия</string>
+    <string name="hint_gender">Пол</string>
+    <string name="hint_height">Рост</string>
+    <string name="hint_weight">Вес</string>
+    <string name="hint_password">Пароль</string>
+    <string name="hint_concoct_password">Придумайте пароль</string>
+    <string name="hint_repeate_password">Повторите пароль</string>
 </resources>

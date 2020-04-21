@@ -1,27 +1,27 @@
-package thousand.group.healbits.views.auth.presenters.login
+package thousand.group.healbits.views.auth.presenters.signup
 
 import android.content.Intent
 import android.os.Bundle
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.redmadrobot.inputmask.MaskedTextChangedListener
-import kotlinx.android.synthetic.main.fragment_login.*
+import kotlinx.android.synthetic.main.fragment_sign_up.*
+import kotlinx.android.synthetic.main.toolbar_title_backspace.*
 import org.koin.android.ext.android.getKoin
 import org.koin.core.parameter.parametersOf
 import org.koin.core.qualifier.named
 import thousand.group.healbits.R
 import thousand.group.healbits.global.base.BaseFragment
 import thousand.group.healbits.global.constants.scopes.AuthScope
-import thousand.group.healbits.global.extentions.replaceFragmentWithBackStack
 import thousand.group.healbits.global.helpers.MainFragmentHelper
-import thousand.group.healbits.views.auth.presenters.signup.SignUpFragment
 
-class LoginFragment : BaseFragment(), LoginView {
-    override val layoutRes = R.layout.fragment_login
+class SignUpFragment : BaseFragment(), SignUpView {
+
+    override val layoutRes = R.layout.fragment_sign_up
 
     companion object {
 
-        const val TAG = "LoginFragment"
+        const val TAG = "SignUpFragment"
         var NAV_TAG = MainFragmentHelper.getJsonFragmentTag(
             MainFragmentHelper(
                 title = TAG,
@@ -29,25 +29,26 @@ class LoginFragment : BaseFragment(), LoginView {
             )
         )
 
-        fun newInstance(): LoginFragment {
-            return LoginFragment()
+        fun newInstance(): SignUpFragment {
+            return SignUpFragment()
         }
     }
 
     @InjectPresenter
-    lateinit var presenter: LoginPresenter
+    lateinit var presenter: SignUpPresenter
 
     @ProvidePresenter
-    fun providePresenter(): LoginPresenter {
+    fun providePresenter(): SignUpPresenter {
         val scope = getKoin().getOrCreateScope(
-            AuthScope.LOGIN_SCOPE,
-            named(AuthScope.LOGIN_SCOPE)
+            AuthScope.SIGN_UP_SCOPE,
+            named(AuthScope.SIGN_UP_SCOPE)
         )
 
         return scope.get {
             parametersOf(activity)
         }
     }
+
 
     override fun initBundle(arguments: Bundle?) {
     }
@@ -56,7 +57,9 @@ class LoginFragment : BaseFragment(), LoginView {
     }
 
     override fun initController() {
-        main_layout.setOnClickListener { }
+        back_icon.setOnClickListener {
+            activity?.onBackPressed()
+        }
 
         MaskedTextChangedListener.installOn(
             phone_edit_text,
@@ -72,23 +75,25 @@ class LoginFragment : BaseFragment(), LoginView {
             }
         )
 
-        login_btn.setOnClickListener {
-            presenter.signInBtnClicked(pass_edit_text.editText?.text)
-        }
-
         sign_up_btn.setOnClickListener {
-            activity?.supportFragmentManager?.replaceFragmentWithBackStack(
-                R.id.fragment_container,
-                SignUpFragment.newInstance(),
-                SignUpFragment.NAV_TAG
+            presenter.signUpBtnClicked(
+                first_name_edit_text.text,
+                last_name_edit_text.text,
+                gender_edit_text.text,
+                height_edit_text.text,
+                weight_edit_text.text,
+                pass_edit_text.editText?.text,
+                repass_edit_text.editText?.text
             )
         }
     }
 
     override fun onDestroy() {
-        getKoin().getScopeOrNull(AuthScope.LOGIN_SCOPE)?.close()
+        getKoin().getScopeOrNull(AuthScope.SIGN_UP_SCOPE)?.close()
         super.onDestroy()
     }
+
+    override fun setTitle(text: Int) = title_main.setText(text)
 
     override fun openMainActivity(intent: Intent) {
         activity?.apply {
@@ -96,5 +101,4 @@ class LoginFragment : BaseFragment(), LoginView {
             finish()
         }
     }
-
 }
