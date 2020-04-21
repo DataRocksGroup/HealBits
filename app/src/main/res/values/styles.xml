@@ -57,4 +57,37 @@
         <item name="android:textColor">@color/colorBlack</item>
     </style>
 
+    <style name="BottomNavigationViewTheme" parent="Widget.Design.BottomNavigationView">
+        <item name="fontFamily">@font/sfui_regular</item>
+        <item name="android:textSize">@dimen/text_too_small</item>
+    </style>
+
+    <style name="Normal_2_BlackTextStyle">
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">start|top</item>
+        <item name="android:fontFamily">@font/sfui_regular</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/text_normal_2</item>
+    </style>
+
+    <style name="SmallerGreyTextStyle">
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/colorTrolleyGray</item>
+        <item name="android:textSize">@dimen/text_too_small</item>
+    </style>
+
+    <style name="BlackTextStyle_Bold">
+        <item name="android:ellipsize">end</item>
+        <item name="android:gravity">start|top</item>
+        <item name="android:fontFamily">@font/sfui_bold</item>
+        <item name="android:textColor">@color/colorBlack</item>
+        <item name="android:textSize">@dimen/text_normal</item>
+    </style>
+
+    <style name="GreyTextStyle">
+        <item name="android:ellipsize">end</item>
+        <item name="android:textColor">@color/colorTrolleyGray</item>
+        <item name="android:textSize">@dimen/text_normal_2</item>
+    </style>
+
 </resources>
