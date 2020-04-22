@@ -5,4 +5,6 @@ import com.arellomobile.mvp.viewstate.strategy.StateStrategyType
 import thousand.group.healbits.global.base.BaseMvpView
 
 @StateStrategyType(OneExecutionStateStrategy::class)
-interface MainView : BaseMvpView
+interface MainView : BaseMvpView {
+    fun openProfileFragment()
+}

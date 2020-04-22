@@ -7,6 +7,7 @@ import org.koin.dsl.module
 import thousand.group.azimutgas.views.main.presentations.profile.ProfilePresenter
 import thousand.group.healbits.global.constants.scopes.MainScope
 import thousand.group.healbits.views.main.presenters.activity.MainPresenter
+import thousand.group.healbits.views.main.presenters.profile_edit.ProfileEditPresenter
 
 val presenterMainModule = module {
     scope(named(MainScope.MAIN_SCOPE)) {
@@ -18,6 +19,12 @@ val presenterMainModule = module {
     scope(named(MainScope.PROFILE_SCOPE)) {
         scoped { (context: Context) ->
             ProfilePresenter(context, get { parametersOf(context) }, get())
+        }
+    }
+
+    scope(named(MainScope.PROFILE_EDIT_SCOPE)) {
+        scoped { (context: Context) ->
+            ProfileEditPresenter(context, get { parametersOf(context) }, get())
         }
     }
 }

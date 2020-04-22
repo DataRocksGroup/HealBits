@@ -7,11 +7,15 @@
     <string name="label_welcome">Добро пожаловать</string>
     <string name="label_sign_up">Регистрация</string>
     <string name="label_sign_up_do">Зарегестрироваться</string>
+    <string name="label_change">Изменить</string>
     <string name="label_profile">Профиль</string>
     <string name="label_number_phone">Номер телефона</string>
 
     <string name="format_phone_number" translatable="false">+7 ([000]) [000]-[00]-[00]</string>
     <string name="format_phone_number_clear">8%s</string>
+    <string name="format_fullname">%s %s</string>
+    <string name="format_height">%d m</string>
+    <string name="format_weight">%d kg</string>
 
     <string name="message_error_password_is_not_correct">Пароли либо не совпадают либо пустые!</string>
     <string name="message_error_password_is_empty">Пароль не должен быть пустым!</string>

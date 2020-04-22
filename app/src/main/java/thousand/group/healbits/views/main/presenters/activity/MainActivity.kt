@@ -7,13 +7,19 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
+import kotlinx.android.synthetic.main.activity_main.*
 import org.koin.android.ext.android.getKoin
 import org.koin.core.parameter.parametersOf
 import org.koin.core.qualifier.named
+import thousand.group.azimutgas.views.main.presentations.profile.ProfileFragment
 import thousand.group.healbits.R
 import thousand.group.healbits.global.base.BaseActivity
 import thousand.group.healbits.global.constants.scopes.MainScope
+import thousand.group.healbits.global.extentions.clearAndReplaceFragment
+import thousand.group.healbits.global.extentions.visible
 import thousand.group.healbits.global.helpers.MainFragmentHelper
+import thousand.group.mybuh.global.extentions.setChecked
+import thousand.group.mybuh.global.extentions.uncheckAllItems
 
 class MainActivity : BaseActivity(), MainView {
     override val layoutRes = R.layout.activity_main
@@ -40,6 +46,7 @@ class MainActivity : BaseActivity(), MainView {
     }
 
     override fun initView(savedInstanceState: Bundle?) {
+        openProfileFragment()
     }
 
     override fun initController() {
@@ -72,6 +79,32 @@ class MainActivity : BaseActivity(), MainView {
             true
         )
 
+        bottomNavMain.setOnNavigationItemSelectedListener {
+            supportFragmentManager.apply {
+
+                val fragment: Fragment?
+
+                if (!this.fragments.isNullOrEmpty()) {
+                    fragment = fragments[fragments.size - 1]
+                } else {
+                    fragment = null
+                }
+
+                when (it.itemId) {
+                    R.id.navigation_profile -> {
+                        if (fragment !is ProfileFragment) {
+                            supportFragmentManager.clearAndReplaceFragment(
+                                R.id.fragment_container,
+                                ProfileFragment.newInstance(),
+                                ProfileFragment.NAV_TAG
+                            )
+                        }
+                    }
+                }
+            }
+            return@setOnNavigationItemSelectedListener true
+        }
+
     }
 
     override fun onDestroy() {
@@ -81,13 +114,31 @@ class MainActivity : BaseActivity(), MainView {
 
     private fun fragmentLifeCycleController(tag: String) {
 
+        val bottomNavVisiblityFlag = MainFragmentHelper.isShowBottomNavBar(tag)
+        val bottomNavPosFlag = MainFragmentHelper.getBottomNavPos(tag)
         val statusBarFlag = MainFragmentHelper.getStatusBarColorRes(tag)
+
+        bottomNavMain.visible(bottomNavVisiblityFlag)
+
+        if (bottomNavPosFlag != null) {
+            bottomNavMain.setChecked(bottomNavPosFlag)
+        } else {
+            bottomNavMain.uncheckAllItems()
+        }
 
         if (statusBarFlag != null) {
             changeStatusBarColor(statusBarFlag)
         } else {
             changeStatusBarColor(R.color.colorAccent)
         }
+    }
+
+    override fun openProfileFragment() {
+        supportFragmentManager.clearAndReplaceFragment(
+            R.id.fragment_container,
+            ProfileFragment.newInstance(),
+            ProfileFragment.NAV_TAG
+        )
     }
 
 }
