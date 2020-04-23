@@ -29,27 +29,17 @@
             android:padding="@dimen/padding_simple">
 
             <EditText
-                android:id="@+id/phone_edit_text"
-                style="@style/StandartEditTextStyle"
-                android:hint="@string/hint_phone"
-                android:inputType="phone"
-                android:text=""
-                app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent"
-                app:layout_constraintVertical_bias="0.050000012" />
-
-            <EditText
                 android:id="@+id/first_name_edit_text"
                 style="@style/StandartEditTextStyle"
                 android:layout_marginTop="@dimen/margin_between_views"
                 android:hint="@string/hint_first_name"
                 android:inputType="textPersonName"
                 android:text=""
+                app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@+id/phone_edit_text" />
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.050000012" />
 
             <EditText
                 android:id="@+id/last_name_edit_text"
@@ -150,9 +140,9 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <Button
-                android:id="@+id/sign_up_btn"
+                android:id="@+id/change_pass"
                 style="@style/OrangeBtnStyle"
-                android:text="@string/label_sign_up_do"
+                android:text="@string/label_change"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"

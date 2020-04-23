@@ -10,12 +10,18 @@
     <string name="label_change">Изменить</string>
     <string name="label_profile">Профиль</string>
     <string name="label_number_phone">Номер телефона</string>
+    <string name="label_empty_text">Не найдено</string>
+    <string name="label_category">Категории упражнении</string>
+    <string name="label_exercise">Список упражнении</string>
+    <string name="label_cat">Упражнения</string>
 
     <string name="format_phone_number" translatable="false">+7 ([000]) [000]-[00]-[00]</string>
     <string name="format_phone_number_clear">8%s</string>
     <string name="format_fullname">%s %s</string>
     <string name="format_height">%d m</string>
     <string name="format_weight">%d kg</string>
+    <string name="format_app_youtube">vnd.youtube:%s</string>
+    <string name="format_web_youtube">http://www.youtube.com/watch?v=%s</string>
 
     <string name="message_error_password_is_not_correct">Пароли либо не совпадают либо пустые!</string>
     <string name="message_error_password_is_empty">Пароль не должен быть пустым!</string>

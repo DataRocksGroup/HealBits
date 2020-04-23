@@ -5,6 +5,8 @@ import retrofit2.Response
 import retrofit2.http.*
 import thousand.group.healbits.global.constants.requests.UserRequest
 import thousand.group.healbits.global.constants.simple.Endpoints
+import thousand.group.healbits.model.rest.RestCategory
+import thousand.group.healbits.model.rest.RestExercise
 import thousand.group.healbits.model.rest.RestUser
 import thousand.group.healbits.model.simple.User
 
@@ -31,5 +33,11 @@ interface ServerService {
         @Path(UserRequest.id) id: String,
         @FieldMap params: MutableMap<String, String>
     ): Single<Response<User>>
+
+    @GET(Endpoints.GET_CATEGORIES)
+    fun getCategories(): Single<Response<RestCategory>>
+
+    @GET(Endpoints.GET_EXERCISE)
+    fun getExercises(@Path(UserRequest.id) id: String): Single<Response<RestExercise>>
 
 }
