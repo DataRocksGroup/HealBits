@@ -8,4 +8,10 @@ class MainInteractor(
     private val repository: MainRepository,
     private val schedulersProvider: SchedulersProvider,
     private val storage: LocaleStorage
-)
+) {
+    fun deleteUser() = storage.deleteUserModel()
+
+    fun setAccessToken(token: String) = storage.setAccessToken(token)
+
+    fun saveUser(save: Boolean) = storage.saveUser(save)
+}

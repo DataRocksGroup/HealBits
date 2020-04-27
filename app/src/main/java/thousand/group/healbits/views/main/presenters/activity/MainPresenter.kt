@@ -24,4 +24,13 @@ class MainPresenter(
 
     override fun onFinish() {
     }
+
+    fun signOut() {
+        interactor.apply {
+            deleteUser()
+            setAccessToken("")
+            saveUser(false)
+            viewState.openAuthActivity()
+        }
+    }
 }

@@ -7,4 +7,6 @@ import thousand.group.healbits.global.base.BaseMvpView
 @StateStrategyType(OneExecutionStateStrategy::class)
 interface MainView : BaseMvpView {
     fun openProfileFragment()
+
+    fun openAuthActivity()
 }

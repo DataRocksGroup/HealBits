@@ -18,6 +18,7 @@ import thousand.group.healbits.global.constants.scopes.MainScope
 import thousand.group.healbits.global.extentions.clearAndReplaceFragment
 import thousand.group.healbits.global.extentions.visible
 import thousand.group.healbits.global.helpers.MainFragmentHelper
+import thousand.group.healbits.views.auth.presenters.activity.AuthActivity
 import thousand.group.healbits.views.main.presenters.categories.CategoriesFragment
 import thousand.group.healbits.views.main.presenters.tasks.TaskFragment
 import thousand.group.mybuh.global.extentions.setChecked
@@ -122,6 +123,9 @@ class MainActivity : BaseActivity(), MainView {
                             )
                         }
                     }
+                    R.id.navigation_exit -> {
+                        presenter.signOut()
+                    }
                 }
             }
             return@setOnNavigationItemSelectedListener true
@@ -161,6 +165,11 @@ class MainActivity : BaseActivity(), MainView {
             ProfileFragment.newInstance(),
             ProfileFragment.NAV_TAG
         )
+    }
+
+    override fun openAuthActivity() {
+        startActivity(Intent(this, AuthActivity::class.java))
+        finish()
     }
 
 }
