@@ -165,7 +165,11 @@ class SignUpPresenter(
 
                     when (it.code()) {
                         AppConstants.STATUS_CODE_200 -> {
-                            openMainActivity()
+                            it.body()?.apply {
+                                saveUser(this)
+                                saveUserAccess(true)
+                                openMainActivity()
+                            }
                         }
                         else -> {
                             viewState.showMessageError(R.string.message_error_user_is_previously_signed_up)
