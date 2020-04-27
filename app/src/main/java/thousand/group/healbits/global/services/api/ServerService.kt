@@ -1,5 +1,6 @@
 package thousand.group.healbits.global.services.api
 
+import io.reactivex.Completable
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.*
@@ -52,4 +53,11 @@ interface ServerService {
     @FormUrlEncoded
     @POST(Endpoints.ADD_TASKS)
     fun addTasks(@FieldMap params: MutableMap<String, String>): Single<Response<Task>>
+
+    @FormUrlEncoded
+    @POST(Endpoints.CHANGE_TASK_STATUS)
+    fun changeTaskStatus(
+        @Path(TaskRequest.id) id: String,
+        @Field(TaskRequest.status) status: String
+    ): Completable
 }

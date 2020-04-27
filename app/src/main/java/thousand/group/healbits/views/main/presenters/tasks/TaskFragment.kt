@@ -103,7 +103,7 @@ class TaskFragment : BaseFragment(), TaskView {
                     presenter.showDeleteDialog(model, position)
                 },
                 { model, position ->
-
+                    presenter.changeStatus(model, position)
                 },
                 {
                     showEmptyText(it)
@@ -170,6 +170,12 @@ class TaskFragment : BaseFragment(), TaskView {
     override fun addTask(model: Task) {
         if (::adapter.isInitialized) {
             adapter.addTask(model)
+        }
+    }
+
+    override fun changeStatusTask(position: Int, status: Int) {
+        if (::adapter.isInitialized) {
+            adapter.changeStatusOfText(position, status)
         }
     }
 

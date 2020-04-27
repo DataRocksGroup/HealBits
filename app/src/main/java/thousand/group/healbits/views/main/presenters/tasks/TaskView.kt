@@ -29,4 +29,6 @@ interface TaskView : BaseMvpView {
 
     fun addTask(model: Task)
 
+    fun changeStatusTask(position: Int, status: Int)
+
 }

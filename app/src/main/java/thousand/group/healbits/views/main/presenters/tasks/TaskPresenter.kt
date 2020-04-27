@@ -161,4 +161,26 @@ class TaskPresenter(
             }
         }
     }
+
+    fun changeStatus(model: Task, position: Int) {
+        val status = if (model.status == 1) 2 else 1
+
+        interactor.apply {
+            changeTaskStatus(model.id, status)
+                .doOnSubscribe { viewState.showProgressBar(true) }
+                .doFinally { viewState.showProgressBar(false) }
+                .subscribe({
+                    viewState.changeStatusTask(position, status)
+                }, {
+                    viewState.showMessageError(
+                        ResErrorHelper.showThrowableMessage(
+                            resourceManager,
+                            TAG,
+                            it
+                        )
+                    )
+                })
+                .connect()
+        }
+    }
 }

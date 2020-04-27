@@ -1,5 +1,6 @@
 package thousand.group.healbits.views.main.repositories.tasks
 
+import io.reactivex.Completable
 import io.reactivex.Single
 import retrofit2.Response
 import thousand.group.healbits.model.rest.RestTask
@@ -13,4 +14,9 @@ interface TasksRepository {
     ): Single<Response<RestTask>>
 
     fun addTasks(params: MutableMap<String, String>): Single<Response<Task>>
+
+    fun changeTaskStatus(
+        id: Int,
+        status: Int
+    ): Completable
 }

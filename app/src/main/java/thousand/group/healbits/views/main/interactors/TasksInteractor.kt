@@ -23,4 +23,12 @@ class TasksInteractor(
             .addTasks(params)
             .subscribeOn(schedulersProvider.io())
             .observeOn(schedulersProvider.ui())
+
+    fun changeTaskStatus(
+        id: Int,
+        status: Int
+    ) = repository
+        .changeTaskStatus(id, status)
+        .subscribeOn(schedulersProvider.io())
+        .observeOn(schedulersProvider.ui())
 }
