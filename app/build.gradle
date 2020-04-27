@@ -140,4 +140,6 @@ dependencies {
     // permissions
     implementation "org.permissionsdispatcher:permissionsdispatcher:4.6.0"
     kapt "org.permissionsdispatcher:permissionsdispatcher-processor:4.6.0"
+
+    implementation 'com.github.prolificinteractive:material-calendarview:2.0.0'
 }

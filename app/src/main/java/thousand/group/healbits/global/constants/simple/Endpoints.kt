@@ -7,4 +7,6 @@ object Endpoints {
     internal const val EDIT_PROFILE_DATA = "users/edit/profile/{id}"
     internal const val GET_CATEGORIES = "category_of_exercises/get"
     internal const val GET_EXERCISE = "exercises/{id}"
+    internal const val GET_TASKS = "tasks/{user_id}/{c_date}"
+    internal const val ADD_TASKS = "tasks/addtask"
 }

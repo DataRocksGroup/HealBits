@@ -9,4 +9,9 @@
         android:id="@+id/navigation_category"
         android:icon="@drawable/ic_search"
         android:title="@string/label_cat" />
+
+    <item
+        android:id="@+id/navigation_tasks"
+        android:icon="@drawable/ic_tax_search"
+        android:title="@string/label_tasks" />
 </menu>

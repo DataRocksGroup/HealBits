@@ -6,4 +6,5 @@ object MainScope {
     internal const val PROFILE_EDIT_SCOPE = "PROFILE_EDIT_SCOPE"
     internal const val CATEGORIES_SCOPE = "CATEGORIES_SCOPE"
     internal const val EXERCISE_SCOPE = "EXERCISE_SCOPE"
+    internal const val TASKS_SCOPE = "TASKS_SCOPE"
 }

@@ -19,6 +19,7 @@ import thousand.group.healbits.global.extentions.clearAndReplaceFragment
 import thousand.group.healbits.global.extentions.visible
 import thousand.group.healbits.global.helpers.MainFragmentHelper
 import thousand.group.healbits.views.main.presenters.categories.CategoriesFragment
+import thousand.group.healbits.views.main.presenters.tasks.TaskFragment
 import thousand.group.mybuh.global.extentions.setChecked
 import thousand.group.mybuh.global.extentions.uncheckAllItems
 
@@ -108,6 +109,16 @@ class MainActivity : BaseActivity(), MainView {
                                 R.id.fragment_container,
                                 CategoriesFragment.newInstance(),
                                 CategoriesFragment.NAV_TAG
+                            )
+                        }
+                    }
+
+                    R.id.navigation_tasks -> {
+                        if (fragment !is TaskFragment) {
+                            supportFragmentManager.clearAndReplaceFragment(
+                                R.id.fragment_container,
+                                TaskFragment.newInstance(),
+                                TaskFragment.NAV_TAG
                             )
                         }
                     }

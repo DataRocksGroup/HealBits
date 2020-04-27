@@ -10,6 +10,7 @@ import thousand.group.healbits.views.main.presenters.activity.MainPresenter
 import thousand.group.healbits.views.main.presenters.categories.CategoriesPresenter
 import thousand.group.healbits.views.main.presenters.exercise.ExercisePresenter
 import thousand.group.healbits.views.main.presenters.profile_edit.ProfileEditPresenter
+import thousand.group.healbits.views.main.presenters.tasks.TaskPresenter
 
 val presenterMainModule = module {
     scope(named(MainScope.MAIN_SCOPE)) {
@@ -39,6 +40,12 @@ val presenterMainModule = module {
     scope(named(MainScope.EXERCISE_SCOPE)) {
         scoped { (context: Context) ->
             ExercisePresenter(context, get { parametersOf(context) }, get())
+        }
+    }
+
+    scope(named(MainScope.TASKS_SCOPE)) {
+        scoped { (context: Context) ->
+            TaskPresenter(context, get { parametersOf(context) }, get())
         }
     }
 }

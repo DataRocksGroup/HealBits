@@ -3,11 +3,14 @@ package thousand.group.healbits.global.services.api
 import io.reactivex.Single
 import retrofit2.Response
 import retrofit2.http.*
+import thousand.group.healbits.global.constants.requests.TaskRequest
 import thousand.group.healbits.global.constants.requests.UserRequest
 import thousand.group.healbits.global.constants.simple.Endpoints
 import thousand.group.healbits.model.rest.RestCategory
 import thousand.group.healbits.model.rest.RestExercise
+import thousand.group.healbits.model.rest.RestTask
 import thousand.group.healbits.model.rest.RestUser
+import thousand.group.healbits.model.simple.Task
 import thousand.group.healbits.model.simple.User
 
 interface ServerService {
@@ -40,4 +43,13 @@ interface ServerService {
     @GET(Endpoints.GET_EXERCISE)
     fun getExercises(@Path(UserRequest.id) id: String): Single<Response<RestExercise>>
 
+    @GET(Endpoints.GET_TASKS)
+    fun getTasks(
+        @Path(TaskRequest.user_id) user_id: String,
+        @Path(TaskRequest.c_date) c_date: String
+    ): Single<Response<RestTask>>
+
+    @FormUrlEncoded
+    @POST(Endpoints.ADD_TASKS)
+    fun addTasks(@FieldMap params: MutableMap<String, String>): Single<Response<Task>>
 }

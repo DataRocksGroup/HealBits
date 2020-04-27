@@ -12,6 +12,8 @@ import thousand.group.healbits.views.main.repositories.exercise.ExerciseReposito
 import thousand.group.healbits.views.main.repositories.exercise.ExerciseRepositoryImpl
 import thousand.group.healbits.views.main.repositories.profile_edit.ProfileEditRepository
 import thousand.group.healbits.views.main.repositories.profile_edit.ProfileEditRepositoryImpl
+import thousand.group.healbits.views.main.repositories.tasks.TasksRepository
+import thousand.group.healbits.views.main.repositories.tasks.TasksRepositoryImpl
 
 val interactorMainModule = module {
     single<MainRepository> {
@@ -38,4 +40,9 @@ val interactorMainModule = module {
         ExerciseRepositoryImpl(get())
     }
     single { ExerciseInteractor(get(), get(), get()) }
+
+    single<TasksRepository> {
+        TasksRepositoryImpl(get())
+    }
+    single { TasksInteractor(get(), get(), get()) }
 }
