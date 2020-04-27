@@ -14,6 +14,7 @@ import thousand.group.healbits.global.system.ResourceManager
 import thousand.group.healbits.model.simple.Task
 import thousand.group.healbits.model.simple.User
 import thousand.group.healbits.views.main.interactors.TasksInteractor
+import java.util.*
 
 @InjectViewState
 class TaskPresenter(
@@ -44,6 +45,22 @@ class TaskPresenter(
 
         viewState.setTitle(R.string.label_tasks)
         viewState.setAdapter()
+
+        val calendar = Calendar.getInstance()
+        val year = calendar.get(Calendar.YEAR)
+        val month = calendar.get(Calendar.MONTH)
+        val day = calendar.get(Calendar.DAY_OF_MONTH)
+
+        dateStr = String.format(
+            resourceManager.getString(R.string.format_date),
+            day,
+            month + 1,
+            year
+        )
+
+        Log.i(TAG, dateStr)
+
+        loadDate()
     }
 
     override fun onFinish() {
@@ -59,6 +76,10 @@ class TaskPresenter(
 
         Log.i(TAG, dateStr)
 
+        loadDate()
+    }
+
+    fun loadDate() {
         user?.apply {
             interactor.apply {
                 getTasks(id, dateStr)

@@ -60,6 +60,7 @@ class TaskAdapter(
     fun addTask(model: Task) {
         dataList.add(model)
         notifyItemInserted(dataList.size - 1)
+        itemEmptyCallback.invoke(this.dataList.isEmpty())
     }
 
     fun deleteItem(position: Int) {
@@ -110,8 +111,9 @@ class TaskAdapter(
                     }
                 }
 
-                setOnClickListener {
+                setOnLongClickListener {
                     itemChangeStatusClicked(model, position)
+                    false
                 }
             }
         }
