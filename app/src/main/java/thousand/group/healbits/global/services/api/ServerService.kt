@@ -60,4 +60,9 @@ interface ServerService {
         @Path(TaskRequest.id) id: String,
         @Field(TaskRequest.status) status: String
     ): Completable
+
+    @DELETE(Endpoints.DELETE_TASKS)
+    fun deleteTask(
+        @Path(TaskRequest.id) id: String
+    ): Completable
 }

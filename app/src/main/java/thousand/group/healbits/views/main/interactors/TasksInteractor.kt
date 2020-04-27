@@ -31,4 +31,10 @@ class TasksInteractor(
         .changeTaskStatus(id, status)
         .subscribeOn(schedulersProvider.io())
         .observeOn(schedulersProvider.ui())
+
+    fun deleteTask(id: Int) = repository
+        .deleteTask(id)
+        .subscribeOn(schedulersProvider.io())
+        .observeOn(schedulersProvider.ui())
+
 }

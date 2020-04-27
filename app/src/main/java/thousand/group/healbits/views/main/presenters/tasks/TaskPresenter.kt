@@ -104,7 +104,22 @@ class TaskPresenter(
     }
 
     fun delete(model: Task, position: Int) {
-
+        interactor
+            .deleteTask(model.id)
+            .doOnSubscribe { viewState.showProgressBar(true) }
+            .doFinally { viewState.showProgressBar(false) }
+            .subscribe({
+                viewState.deleteItem(position)
+            }, {
+                viewState.showMessageError(
+                    ResErrorHelper.showThrowableMessage(
+                        resourceManager,
+                        TAG,
+                        it
+                    )
+                )
+            })
+            .connect()
     }
 
     fun addTasks(addEdit: Editable?) {

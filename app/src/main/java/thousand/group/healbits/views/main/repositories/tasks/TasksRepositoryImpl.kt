@@ -19,4 +19,6 @@ class TasksRepositoryImpl(
 
     override fun changeTaskStatus(id: Int, status: Int): Completable =
         service.changeTaskStatus(id.toString(), status.toString())
+
+    override fun deleteTask(id: Int): Completable = service.deleteTask(id.toString())
 }

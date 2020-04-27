@@ -10,4 +10,6 @@ object Endpoints {
     internal const val GET_TASKS = "tasks/{user_id}/{c_date}"
     internal const val ADD_TASKS = "tasks/addtask"
     internal const val CHANGE_TASK_STATUS = "tasks/edit/status/{id}"
+    internal const val DELETE_TASKS = "tasks/delete/{id}"
+
 }

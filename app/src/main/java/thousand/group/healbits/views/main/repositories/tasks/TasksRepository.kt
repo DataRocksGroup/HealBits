@@ -19,4 +19,8 @@ interface TasksRepository {
         id: Int,
         status: Int
     ): Completable
+
+    fun deleteTask(
+        id: Int
+    ): Completable
 }
