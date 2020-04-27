@@ -6,7 +6,7 @@ import android.os.Bundle
 import com.arellomobile.mvp.presenter.InjectPresenter
 import com.arellomobile.mvp.presenter.ProvidePresenter
 import kotlinx.android.synthetic.main.fragment_exercise.*
-import kotlinx.android.synthetic.main.toolbar_title.*
+import kotlinx.android.synthetic.main.toolbar_title_backspace.*
 import org.koin.android.ext.android.getKoin
 import org.koin.core.parameter.parametersOf
 import org.koin.core.qualifier.named
@@ -71,6 +71,10 @@ class ExerciseFragment : BaseFragment(), ExerciseView {
     override fun initController() {
         swipe_refresh.setOnRefreshListener {
             presenter.refresh()
+        }
+
+        back_icon.setOnClickListener {
+            activity?.onBackPressed()
         }
     }
 
